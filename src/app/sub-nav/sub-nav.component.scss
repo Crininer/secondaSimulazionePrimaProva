@@ -1,11 +1,11 @@
 @import "../../utilities/variables";
 @import "~bootstrap/scss/bootstrap";
 
-.sub-nav {
+#sub-nav {
   position: sticky;
   top: $nav-height;
   z-index: 100;
-  background-color: theme-color("primary");
-  color: color-yiq(theme-color("primary"));
+  background-color: theme-color("secondary");
+  color: color-yiq(theme-color("secondary"));
   padding-bottom: 5px;
 }

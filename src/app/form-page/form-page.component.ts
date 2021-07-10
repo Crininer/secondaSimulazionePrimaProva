@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-page',
@@ -7,7 +7,21 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./form-page.component.scss'],
 })
 export class FormPageComponent implements OnInit {
-  form = new FormGroup({});
+  form = new FormGroup({
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+  });
+
+  quickLinks = [
+    {
+      text: 'Anagrafica',
+      destination: 'anagrafica',
+    },
+    {
+      text: "Qualcos'altro",
+      destination: 'altro',
+    },
+  ];
 
   constructor() {}
 

@@ -20,7 +20,11 @@ export class SubNavComponent implements OnInit {
   ngOnInit(): void {}
 
   scrollInto(id: string) {
-    let el = document.getElementById(id).offsetTop - 240;
+    let el =
+      document.getElementById(id).offsetTop -
+      document.getElementById('sub-nav').offsetHeight -
+      80;
+    console.log(document.getElementById('sub-nav').offsetHeight);
     window.scroll({ top: el, behavior: 'smooth' });
   }
 }
