@@ -8,10 +8,26 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
+import { FormPageComponent } from './form-page/form-page.component';
+import { SubNavComponent } from './sub-nav/sub-nav.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, FontAwesomeModule],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    HomeComponent,
+    FormPageComponent,
+    SubNavComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FontAwesomeModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

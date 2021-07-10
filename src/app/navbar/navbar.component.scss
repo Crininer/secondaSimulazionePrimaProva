@@ -1,8 +1,13 @@
-@import "../../utilities/variables.scss";
+@import "../../utilities/_variables.scss";
 @import "~bootstrap/scss/bootstrap";
 
 nav {
-  height: 4.5rem;
+  height: $nav-height;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
 }
 
 nav,
@@ -22,8 +27,7 @@ a.navbar-brand {
 
 a.nav-link {
   border-radius: 4px;
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
+  text-align: center;
   &:hover {
     background-color: theme-color("primary-background-highlight");
     color: color-yiq(theme-color("primary"));
