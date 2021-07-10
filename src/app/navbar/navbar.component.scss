@@ -1,0 +1,33 @@
+@import "../../utilities/variables.scss";
+@import "~bootstrap/scss/bootstrap";
+
+nav {
+  height: 4.5rem;
+}
+
+nav,
+fa-icon,
+.navbar-toggler,
+a {
+  color: color-yiq(theme-color("primary"));
+}
+
+img {
+  height: 100%;
+}
+
+a.navbar-brand {
+  height: 100%;
+}
+
+a.nav-link {
+  border-radius: 4px;
+  &:hover {
+    background-color: theme-color("primary-background-highlight");
+    color: color-yiq(theme-color("primary"));
+  }
+}
+
+.navbar-collapse {
+  background-color: theme-color("primary-transparent");
+}

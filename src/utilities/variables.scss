@@ -1,1 +1,5 @@
-$theme-colors: ();
+$theme-colors: (
+  "primary": rgb(38, 69, 128),
+  "primary-transparent": rgba(38, 69, 128, 0.85),
+  "primary-background-highlight": rgb(27, 48, 85),
+);
