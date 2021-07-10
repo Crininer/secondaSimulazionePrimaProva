@@ -22,6 +22,8 @@ a.navbar-brand {
 
 a.nav-link {
   border-radius: 4px;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
   &:hover {
     background-color: theme-color("primary-background-highlight");
     color: color-yiq(theme-color("primary"));
@@ -30,4 +32,5 @@ a.nav-link {
 
 .navbar-collapse {
   background-color: theme-color("primary-transparent");
+  border-radius: 4px;
 }
