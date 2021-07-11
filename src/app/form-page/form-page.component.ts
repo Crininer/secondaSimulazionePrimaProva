@@ -46,7 +46,24 @@ export class FormPageComponent implements OnInit {
         name: new FormControl('', Validators.required),
         price: new FormControl('', Validators.required),
         description: new FormControl('', Validators.required),
+        notAvailable: new FormControl(false, Validators.required),
       })
+    );
+    let product = this.refProducts.controls[
+      this.refProducts.length - 1
+    ] as FormGroup;
+    (product.controls['notAvailable'] as FormControl).valueChanges.subscribe(
+      (checked) => {
+        let price = product.controls['price'] as FormControl;
+        if (checked) {
+          price.disable();
+          price.setValue('');
+          price.setValidators([]);
+        } else {
+          price.enable();
+          price.setValidators([Validators.required]);
+        }
+      }
     );
   }
 

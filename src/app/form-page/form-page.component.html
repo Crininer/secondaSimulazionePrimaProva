@@ -87,8 +87,11 @@
             formControlName="name"
           />
         </div>
-        <div class="col-md-6">
-          <label class="required" for="price-{{ i }}">Prezzo</label
+        <div class="col-md-4 col-sm-8">
+          <label
+            [ngClass]="{ required: !this.prod.controls['notAvailable'].value }"
+            for="price-{{ i }}"
+            >Prezzo</label
           ><input
             type="number"
             name="price-{{ i }}"
@@ -96,6 +99,19 @@
             class="form-control price"
             formControlName="price"
           />
+        </div>
+        <div class="col-md-2 col-sm-4 d-flex align-items-end pb-2">
+          <div class="custom-control custom-switch">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="notAvailable-{{ i }}"
+              formControlName="notAvailable"
+            />
+            <label class="custom-control-label" for="notAvailable-{{ i }}">
+              Non Disponibile
+            </label>
+          </div>
         </div>
 
         <div class="col-12">
