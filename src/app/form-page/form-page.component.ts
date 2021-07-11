@@ -11,12 +11,17 @@ export class FormPageComponent implements OnInit {
   faTrash = faTrash;
   faPlus = faPlus;
 
+  submitting = false;
+  showRequiredErrors = false;
+  maritalStatuses = ['Single', 'Sposato'];
+
   form = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     gender: new FormControl('', Validators.required),
     birthdate: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
+    maritalStatus: new FormControl('', [Validators.required]),
     products: new FormArray([]),
   });
 
@@ -44,7 +49,7 @@ export class FormPageComponent implements OnInit {
     this.refProducts.push(
       new FormGroup({
         name: new FormControl('', Validators.required),
-        price: new FormControl('', Validators.required),
+        price: new FormControl('', [Validators.required, Validators.min(0)]),
         description: new FormControl('', Validators.required),
         notAvailable: new FormControl(false, Validators.required),
       })
@@ -61,7 +66,8 @@ export class FormPageComponent implements OnInit {
           price.setValidators([]);
         } else {
           price.enable();
-          price.setValidators([Validators.required]);
+          price.setValidators([Validators.required, Validators.min(0)]);
+          price.updateValueAndValidity();
         }
       }
     );
@@ -71,5 +77,14 @@ export class FormPageComponent implements OnInit {
     this.refProducts.removeAt(index);
   }
 
-  onSubmit() {}
+  onSubmit() {
+    if (this.form.invalid) {
+      this.showRequiredErrors = true;
+    } else {
+      this.submitting = true;
+      setTimeout(() => {
+        this.submitting = false;
+      }, 1000);
+    }
+  }
 }

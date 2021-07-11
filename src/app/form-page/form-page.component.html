@@ -6,17 +6,35 @@
   <h3 id="anagrafica">Anagrafica</h3>
   <div class="row mb-4">
     <div class="col-md-4">
-      <label class="required" for="firstName">First Name</label>
+      <label
+        class="required"
+        for="firstName"
+        [ngClass]="{
+          'text-danger':
+            form.get('firstName').hasError('required') && showRequiredErrors
+        }"
+        >Nome</label
+      >
       <input
         type="text"
         name="firstName"
         id="firstName"
         class="form-control"
+        [ngClass]="{
+          'is-invalid':
+            form.get('firstName').hasError('required') && showRequiredErrors
+        }"
         formControlName="firstName"
       />
+      <div
+        class="text-danger"
+        *ngIf="form.get('firstName').hasError('required') && showRequiredErrors"
+      >
+        Il nome &egrave; obbligatorio
+      </div>
     </div>
     <div class="col-md-4">
-      <label class="required" for="lastName">Last Name</label>
+      <label class="required" for="lastName">Cognome</label>
       <input
         type="text"
         name="lastName"
@@ -26,7 +44,7 @@
       />
     </div>
     <div class="col-md-4">
-      <label class="required" for="gender">Gender</label>
+      <label class="required" for="gender">Genere</label>
       <input
         type="text"
         name="gender"
@@ -36,7 +54,7 @@
       />
     </div>
     <div class="col-md-4">
-      <label class="required" for="birthdate">Birthdate</label>
+      <label class="required" for="birthdate">Data di nascita</label>
       <input
         type="date"
         name="birthdate"
@@ -45,15 +63,52 @@
         formControlName="birthdate"
       />
     </div>
-    <div class="col-md-8">
-      <label class="required" for="email">E-Mail</label>
+    <div class="col-md-5">
+      <label
+        class="required"
+        for="email"
+        [ngClass]="{
+          'text-danger':
+            (form.get('email').hasError('required') && showRequiredErrors) ||
+            form.get('email').hasError('email')
+        }"
+        >E-Mail</label
+      >
       <input
         type="email"
         name="email"
         id="email"
         class="form-control"
+        [ngClass]="{
+          'is-invalid':
+            (form.get('email').hasError('required') && showRequiredErrors) ||
+            form.get('email').hasError('email')
+        }"
         formControlName="email"
       />
+      <div
+        class="text-danger"
+        *ngIf="form.get('email').hasError('required') && showRequiredErrors"
+      >
+        L'email &egrave; obbligatoria
+      </div>
+      <div class="text-danger" *ngIf="form.get('email').hasError('email')">
+        L'email non &egrave; valida
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label for="maritalStatus" class="required">Stato Maritale</label>
+      <select
+        name="maritalStatus"
+        id="maritalStatus"
+        formControlName="maritalStatus"
+        class="form-control"
+      >
+        <option value="" disabled>Scegli un'opzione</option>
+        <option *ngFor="let o of maritalStatuses" value="{{ o }}">
+          {{ o }}
+        </option>
+      </select>
     </div>
   </div>
 
@@ -89,7 +144,13 @@
         </div>
         <div class="col-md-4 col-sm-8">
           <label
-            [ngClass]="{ required: !this.prod.controls['notAvailable'].value }"
+            [ngClass]="{
+              required: !this.prod.controls['notAvailable'].value,
+              'text-danger':
+                (prod.get('price').hasError('required') &&
+                  showRequiredErrors) ||
+                prod.get('price').hasError('min')
+            }"
             for="price-{{ i }}"
             >Prezzo</label
           ><input
@@ -98,9 +159,26 @@
             id="price-{{ i }}"
             class="form-control price"
             formControlName="price"
+            min="0"
+            [ngClass]="{
+              'is-invalid':
+                (prod.get('price').hasError('required') &&
+                  showRequiredErrors) ||
+                prod.get('price').hasError('min')
+            }"
           />
+          <div
+            class="text-danger"
+            *ngIf="prod.get('price').hasError('required') && showRequiredErrors"
+          >
+            Il prezzo &egrave; obbligatorio
+          </div>
+          <div class="text-danger" *ngIf="prod.get('price').hasError('min')">
+            Il prezzo non pu&ograve; essere negativo
+          </div>
         </div>
-        <div class="col-md-2 col-sm-4 d-flex align-items-end pb-2">
+        <!-- Switch personalizzato -->
+        <div class="col-md-2 col-sm-4 d-flex align-items-start">
           <div class="custom-control custom-switch">
             <input
               type="checkbox"
@@ -129,6 +207,20 @@
     </div>
     <button class="btn btn-secondary" (click)="addNewProduct()">
       <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+  </div>
+  <div class="bottom-submit">
+    <button
+      type="submit"
+      class="btn btn-lg btn-success d-flex align-items-center"
+    >
+      <span
+        *ngIf="submitting"
+        class="spinner-grow spinner-grow-sm mr-2"
+        role="status"
+        aria-hidden="true"
+      ></span>
+      {{ submitting ? "Invio in corso..." : "Invia" }}
     </button>
   </div>
 </form>

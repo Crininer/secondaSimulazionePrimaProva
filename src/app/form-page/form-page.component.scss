@@ -19,3 +19,16 @@
     padding-bottom: 0;
   }
 }
+
+.bottom-submit {
+  position: sticky;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.2rem;
+  bottom: 0;
+  background-color: theme-color("light");
+}
+
+.custom-switch {
+  margin-top: 2.5rem;
+}
