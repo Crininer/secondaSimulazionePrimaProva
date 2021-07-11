@@ -11,3 +11,8 @@ h1 {
 h3 {
   margin-top: 12px;
 }
+
+label.required:after {
+  content: "*";
+  color: red;
+}
