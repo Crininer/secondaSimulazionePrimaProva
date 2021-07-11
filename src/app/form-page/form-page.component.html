@@ -11,7 +11,8 @@
         for="firstName"
         [ngClass]="{
           'text-danger':
-            form.get('firstName').hasError('required') && showRequiredErrors
+            form.get('firstName').hasError('required') &&
+            form.get('firstName').touched
         }"
         >Nome</label
       >
@@ -22,13 +23,17 @@
         class="form-control"
         [ngClass]="{
           'is-invalid':
-            form.get('firstName').hasError('required') && showRequiredErrors
+            form.get('firstName').hasError('required') &&
+            form.get('firstName').touched
         }"
         formControlName="firstName"
       />
       <div
         class="text-danger"
-        *ngIf="form.get('firstName').hasError('required') && showRequiredErrors"
+        *ngIf="
+          form.get('firstName').hasError('required') &&
+          form.get('firstName').touched
+        "
       >
         Il nome &egrave; obbligatorio
       </div>
@@ -69,8 +74,9 @@
         for="email"
         [ngClass]="{
           'text-danger':
-            (form.get('email').hasError('required') && showRequiredErrors) ||
-            form.get('email').hasError('email')
+            (form.get('email').hasError('required') ||
+              form.get('email').hasError('email')) &&
+            form.get('email').touched
         }"
         >E-Mail</label
       >
@@ -81,18 +87,24 @@
         class="form-control"
         [ngClass]="{
           'is-invalid':
-            (form.get('email').hasError('required') && showRequiredErrors) ||
-            form.get('email').hasError('email')
+            (form.get('email').hasError('required') ||
+              form.get('email').hasError('email')) &&
+            form.get('email').touched
         }"
         formControlName="email"
       />
       <div
         class="text-danger"
-        *ngIf="form.get('email').hasError('required') && showRequiredErrors"
+        *ngIf="
+          form.get('email').hasError('required') && form.get('email').touched
+        "
       >
         L'email &egrave; obbligatoria
       </div>
-      <div class="text-danger" *ngIf="form.get('email').hasError('email')">
+      <div
+        class="text-danger"
+        *ngIf="form.get('email').hasError('email') && form.get('email').touched"
+      >
         L'email non &egrave; valida
       </div>
     </div>
@@ -147,9 +159,9 @@
             [ngClass]="{
               required: !this.prod.controls['notAvailable'].value,
               'text-danger':
-                (prod.get('price').hasError('required') &&
-                  showRequiredErrors) ||
-                prod.get('price').hasError('min')
+                (prod.get('price').hasError('required') ||
+                  prod.get('price').hasError('min')) &&
+                prod.get('price').touched
             }"
             for="price-{{ i }}"
             >Prezzo</label
@@ -162,18 +174,26 @@
             min="0"
             [ngClass]="{
               'is-invalid':
-                (prod.get('price').hasError('required') &&
-                  showRequiredErrors) ||
-                prod.get('price').hasError('min')
+                (prod.get('price').hasError('required') ||
+                  prod.get('price').hasError('min')) &&
+                prod.get('price').touched
             }"
           />
           <div
             class="text-danger"
-            *ngIf="prod.get('price').hasError('required') && showRequiredErrors"
+            *ngIf="
+              prod.get('price').hasError('required') &&
+              prod.get('price').touched
+            "
           >
             Il prezzo &egrave; obbligatorio
           </div>
-          <div class="text-danger" *ngIf="prod.get('price').hasError('min')">
+          <div
+            class="text-danger"
+            *ngIf="
+              prod.get('price').hasError('min') && prod.get('price').touched
+            "
+          >
             Il prezzo non pu&ograve; essere negativo
           </div>
         </div>

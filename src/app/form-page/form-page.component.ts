@@ -78,12 +78,11 @@ export class FormPageComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.form.invalid) {
-      this.showRequiredErrors = true;
-    } else {
+    if (this.form.valid) {
       this.submitting = true;
       setTimeout(() => {
         this.submitting = false;
+        console.log(this.form.value);
       }, 1000);
     }
   }
