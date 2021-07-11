@@ -1,3 +1,29 @@
+<ng-template #loginModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Accedi</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <fa-icon aria-hidden="true" [icon]="faTimes"></fa-icon>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>aaa</form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.close('Save click')"
+    >
+      Accedi
+    </button>
+  </div>
+</ng-template>
+
 <nav class="navbar navbar-expand-md bg-primary pl-0 pr-0">
   <a class="navbar-brand ml-3" [routerLink]="'/'">
     <img src="assets/logo.png" alt="Logo Azienda"
@@ -5,7 +31,8 @@
 
   <div class="order-md-2">
     <div class="btn-group mr-4">
-      <button class="btn btn-secondary">Accedi</button
+      <button class="btn btn-secondary" (click)="open(loginModal)">
+        Accedi</button
       ><button class="btn btn-secondary">Registrati</button>
     </div>
 

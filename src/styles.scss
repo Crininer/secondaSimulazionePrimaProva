@@ -29,3 +29,23 @@ form label {
 .bold {
   font-weight: bold;
 }
+
+.modal-content {
+  border-color: theme-color("primary") !important;
+  background-color: theme-color("primary") !important;
+}
+
+.modal-header {
+  background-color: theme-color("primary");
+  color: color-yiq(theme-color("primary"));
+}
+
+.modal-body {
+  background-color: theme-color("light");
+  color: color-yiq(theme-color("light"));
+}
+
+.modal-footer {
+  background-color: theme-color("dark");
+  color: color-yiq(theme-color("dark"));
+}
