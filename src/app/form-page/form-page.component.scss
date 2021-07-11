@@ -2,11 +2,19 @@
 @import "~bootstrap/scss/bootstrap";
 
 .array-group {
-  padding-bottom: 1rem;
+  &:after {
+    content: " ";
+    align-self: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    max-width: 90vw;
+    width: 90vw;
+    padding-bottom: 1rem;
+    border-bottom: solid theme-color("primary") 2px;
+  }
   margin-bottom: 1rem;
-  border-bottom: solid theme-color("primary") 2px;
 
-  &:last-of-type {
+  &:last-of-type:after {
     border-bottom: 0;
     padding-bottom: 0;
   }
