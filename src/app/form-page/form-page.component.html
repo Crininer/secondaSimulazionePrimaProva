@@ -1,5 +1,7 @@
 <app-sub-nav title="Form" [links]="quickLinks"></app-sub-nav>
 
+<!-- <pre>{{ form.value | json }}</pre> -->
+
 <form class="container-fluid" [formGroup]="form" (ngSubmit)="onSubmit()">
   <h3 id="anagrafica">Anagrafica</h3>
   <div class="row">
@@ -56,20 +58,26 @@
   </div>
 
   <h3 id="prodotti">Prodotti</h3>
-  <ng-container [formGroup]="form.controls['products']">
-    <div
-      class="row array-group"
-      *ngFor="let prod of refProducts.controls; let i = index"
-    >
-      <label for="description-{{ i }}" class="required">Descrizione</label>
-      <textarea
-        name="description-{{ i }}"
-        id="description-{{ i }}"
-        cols="30"
-        rows="4"
-        class="form-control"
-        formControlName="description"
-      ></textarea>
-    </div>
-  </ng-container>
+  <div
+    class="row array-group"
+    *ngFor="let prod of refProducts.controls; let i = index"
+  >
+    <ng-container [formGroup]="prod">
+      <div class="col-12">
+        <h5>Prodotto {{ i + 1 }}</h5>
+      </div>
+
+      <div class="col-12">
+        <label for="description-{{ i }}" class="required">Descrizione</label>
+        <textarea
+          name="description-{{ i }}"
+          id="description-{{ i }}"
+          cols="30"
+          rows="4"
+          class="form-control"
+          formControlName="description"
+        ></textarea>
+      </div>
+    </ng-container>
+  </div>
 </form>
