@@ -21,6 +21,10 @@ label.required:after {
   color: red;
 }
 
+input.price::before {
+  content: "€";
+}
+
 form label {
   margin-top: 0.4rem;
   margin-bottom: 0.1rem;

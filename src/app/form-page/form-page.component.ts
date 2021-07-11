@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-form-page',
@@ -7,6 +8,9 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-page.component.scss'],
 })
 export class FormPageComponent implements OnInit {
+  faTrash = faTrash;
+  faPlus = faPlus;
+
   form = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
@@ -33,6 +37,10 @@ export class FormPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.refProducts = this.form.controls['products'] as FormArray;
+    this.addNewProduct();
+  }
+
+  public addNewProduct() {
     this.refProducts.push(
       new FormGroup({
         name: new FormControl('', Validators.required),
@@ -40,6 +48,10 @@ export class FormPageComponent implements OnInit {
         description: new FormControl('', Validators.required),
       })
     );
+  }
+
+  public removeProduct(index: number) {
+    this.refProducts.removeAt(index);
   }
 
   onSubmit() {}

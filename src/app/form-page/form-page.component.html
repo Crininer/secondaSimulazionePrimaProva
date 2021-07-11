@@ -64,7 +64,37 @@
   >
     <ng-container [formGroup]="prod">
       <div class="col-12">
-        <h5>Prodotto {{ i + 1 }}</h5>
+        <div class="d-flex justify-content-between align-items-center">
+          <h5>Prodotto {{ i + 1 }}</h5>
+          <button
+            class="btn btn-danger"
+            (click)="removeProduct(i)"
+            aria-label="rimuovi prodotto"
+          >
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="required" for="name-{{ i }}">Nome</label
+        ><input
+          type="text"
+          name="name-{{ i }}"
+          id="name-{{ i }}"
+          class="form-control"
+          formControlName="name"
+        />
+      </div>
+      <div class="col-md-6">
+        <label class="required" for="price-{{ i }}">Prezzo</label
+        ><input
+          type="number"
+          name="price-{{ i }}"
+          id="price-{{ i }}"
+          class="form-control price"
+          formControlName="price"
+        />
       </div>
 
       <div class="col-12">
@@ -80,4 +110,7 @@
       </div>
     </ng-container>
   </div>
+  <button class="btn btn-secondary" (click)="addNewProduct()">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </button>
 </form>
