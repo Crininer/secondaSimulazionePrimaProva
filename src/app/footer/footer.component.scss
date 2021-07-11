@@ -8,3 +8,9 @@ footer {
   padding: 1rem;
   overflow: hidden;
 }
+a {
+  color: theme-color("secondary");
+  &:hover {
+    color: theme-color("secondary-light");
+  }
+}

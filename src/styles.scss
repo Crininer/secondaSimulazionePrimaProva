@@ -4,6 +4,10 @@
 @import "./utilities/_variables.scss";
 @import "~bootstrap/scss/bootstrap";
 
+body {
+  background-color: theme-color("light");
+}
+
 h1 {
   font-size: 2rem !important;
 }
@@ -15,6 +19,11 @@ h3 {
 label.required:after {
   content: "*";
   color: red;
+}
+
+form label {
+  margin-top: 0.4rem;
+  margin-bottom: 0.1rem;
 }
 
 .bold {
