@@ -11,6 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { FormPageComponent } from './form-page/form-page.component';
 import { SubNavComponent } from './sub-nav/sub-nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { ParkDetailsPageComponent } from './park-details/park-details-page.component';
+import { BookingFormPageComponent } from './booking-form/booking-form-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     FormPageComponent,
     SubNavComponent,
+    LandingPageComponent,
+    ParkDetailsPageComponent,
+    BookingFormPageComponent,
   ],
   imports: [
     BrowserModule,
