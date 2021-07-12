@@ -14,6 +14,7 @@
         { "season": "fall", "opening": "09:00", "closing": "18:00" },
         { "season": "winter", "opening": "09:00", "closing": "18:00" }
       ],
+      "popularityData": [],
       "attractions": [
         {
           "name": "Attrazione1",
@@ -43,6 +44,7 @@
         { "season": "fall", "opening": "09:00", "closing": "18:00" },
         { "season": "winter", "opening": "09:00", "closing": "18:00" }
       ],
+      "popularityData": [],
       "attractions": [
         {
           "name": "Attrazione1",
@@ -72,6 +74,7 @@
         { "season": "fall", "opening": "09:00", "closing": "18:00" },
         { "season": "winter", "opening": "09:00", "closing": "18:00" }
       ],
+      "popularityData": [],
       "attractions": [
         {
           "name": "Attrazione1",
@@ -84,6 +87,36 @@
           "type": "Moderate",
           "hourOffset": -1,
           "peopleInQueue": 13
+        }
+      ]
+    },
+    {
+      "name": "Fuori di Testa",
+      "image": "https://static.thousandwonders.net/Six.Flags.Magic.Mountain.original.36417.jpg",
+      "location": "Tonino",
+      "theme": "Alpino",
+      "distance": "1460 km",
+      "peopleInside": 125,
+      "openingDates": [],
+      "openingHours": [
+        { "season": "spring", "opening": "09:00", "closing": "18:00" },
+        { "season": "summer", "opening": "09:00", "closing": "18:00" },
+        { "season": "fall", "opening": "09:00", "closing": "18:00" },
+        { "season": "winter", "opening": "09:00", "closing": "18:00" }
+      ],
+      "popularityData": [],
+      "attractions": [
+        {
+          "name": "Attrazione1",
+          "type": "Estreme",
+          "hourOffset": 0,
+          "peopleInQueue": 20
+        },
+        {
+          "name": "Attrazione2",
+          "type": "Estreme",
+          "hourOffset": -1,
+          "peopleInQueue": 20
         }
       ]
     }
