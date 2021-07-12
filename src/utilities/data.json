@@ -1,0 +1,91 @@
+{
+  "parks": [
+    {
+      "name": "Cartaland",
+      "image": "https://api.time.com/wp-content/uploads/2015/07/gettyimages-148505661.jpg",
+      "location": "Pescheria di Carta",
+      "theme": "Avventura",
+      "distance": "850 km",
+      "peopleInside": 400,
+      "openingDates": [],
+      "openingHours": [
+        { "season": "spring", "opening": "09:00", "closing": "18:00" },
+        { "season": "summer", "opening": "09:00", "closing": "18:00" },
+        { "season": "fall", "opening": "09:00", "closing": "18:00" },
+        { "season": "winter", "opening": "09:00", "closing": "18:00" }
+      ],
+      "attractions": [
+        {
+          "name": "Attrazione1",
+          "type": "Per Bambini",
+          "hourOffset": 1,
+          "peopleInQueue": 20
+        },
+        {
+          "name": "Attrazione2",
+          "type": "Per Bambini",
+          "hourOffset": 0,
+          "peopleInQueue": 10
+        }
+      ]
+    },
+    {
+      "name": "Cartaland",
+      "image": "https://media.indiedb.com/images/games/1/47/46587/Mainstreet_small.png",
+      "location": "Simone",
+      "theme": "Avventura",
+      "distance": "1200 km",
+      "peopleInside": 400,
+      "openingDates": [],
+      "openingHours": [
+        { "season": "spring", "opening": "09:00", "closing": "18:00" },
+        { "season": "summer", "opening": "09:00", "closing": "18:00" },
+        { "season": "fall", "opening": "09:00", "closing": "18:00" },
+        { "season": "winter", "opening": "09:00", "closing": "18:00" }
+      ],
+      "attractions": [
+        {
+          "name": "Attrazione1",
+          "type": "Estreme",
+          "hourOffset": 0,
+          "peopleInQueue": 20
+        },
+        {
+          "name": "Attrazione2",
+          "type": "Estreme",
+          "hourOffset": -1,
+          "peopleInQueue": 20
+        }
+      ]
+    },
+    {
+      "name": "Mirabollandia",
+      "image": "http://www.avmpmpr.com.br/site/wp-content/uploads/2019/11/Acqua-Park-Recanto-Sertanejo4.jpeg",
+      "location": "Cotenna",
+      "theme": "Acquatico",
+      "distance": "42 km",
+      "peopleInside": 230,
+      "openingDates": [{ "opening": "01/06", "closing": "15/09" }],
+      "openingHours": [
+        { "season": "spring", "opening": "09:00", "closing": "18:00" },
+        { "season": "summer", "opening": "09:00", "closing": "18:00" },
+        { "season": "fall", "opening": "09:00", "closing": "18:00" },
+        { "season": "winter", "opening": "09:00", "closing": "18:00" }
+      ],
+      "attractions": [
+        {
+          "name": "Attrazione1",
+          "type": "Per Bambini",
+          "hourOffset": 1,
+          "peopleInQueue": 32
+        },
+        {
+          "name": "Attrazione2",
+          "type": "Moderate",
+          "hourOffset": -1,
+          "peopleInQueue": 13
+        }
+      ]
+    }
+  ]
+}
