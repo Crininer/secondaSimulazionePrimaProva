@@ -1,1 +1,15 @@
-<p>park-details works!</p>
+<span
+  *ngIf="loading"
+  class="spinner-grow spinner-grow-sm mr-2"
+  role="status"
+  aria-hidden="true"
+></span>
+<div *ngIf="!loading">
+  <p>
+    Questa sarebbe la pagina contenente tutti i dati del parco
+    {{ park.name }} di
+    {{ park.location }}
+  </p>
+
+  <a href="park/booking/{{ park.id }}" class="btn btn-secondary">Prenota</a>
+</div>

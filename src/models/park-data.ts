@@ -12,16 +12,18 @@ export interface Attraction {
 }
 
 export interface Park {
+  id: string;
   name: string;
   image: string;
   location: string;
   theme: string;
-  distance: string;
+  distance: number;
   peopleInside: number;
   openingDates: any[];
   openingHours: OpeningHour[];
   popularityData: any[];
   attractions: Attraction[];
+  attractionTypes: string[];
 }
 
 export interface ParkList {

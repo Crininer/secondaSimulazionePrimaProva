@@ -9,7 +9,7 @@ import { ParkDetailsPageComponent } from './park-details/park-details-page.compo
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', component: LandingPageComponent },
-  { path: 'booking/:id', component: BookingFormPageComponent },
+  { path: 'park/booking/:id', component: BookingFormPageComponent },
   { path: 'park/:id', component: ParkDetailsPageComponent },
   { path: '**', redirectTo: '' },
 ];

@@ -1,1 +1,239 @@
-<p>booking-form works!</p>
+<span
+  *ngIf="loading"
+  class="spinner-grow spinner-grow-sm mr-2"
+  role="status"
+  aria-hidden="true"
+></span>
+<div *ngIf="!loading">
+  <app-sub-nav
+    title="Viaggio a {{ park.name }}, in {{ park.location }}"
+    [links]="quickLinks"
+  ></app-sub-nav>
+
+  <form class="container" [formGroup]="bookingForm">
+    <h3 id="anagraphics">Anagrafica</h3>
+    <div class="row mb-4 mb-4">
+      <div class="col-md-4">
+        <label
+          class="required"
+          for="firstName"
+          [ngClass]="{
+            'text-danger':
+              bookingForm.get('firstName').hasError('required') &&
+              bookingForm.get('firstName').touched
+          }"
+          >Nome</label
+        >
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              bookingForm.get('firstName').hasError('required') &&
+              bookingForm.get('firstName').touched
+          }"
+          formControlName="firstName"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            bookingForm.get('firstName').hasError('required') &&
+            bookingForm.get('firstName').touched
+          "
+        >
+          Il nome &egrave; obbligatorio
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label
+          class="required"
+          for="lastName"
+          [ngClass]="{
+            'text-danger':
+              bookingForm.get('lastName').hasError('required') &&
+              bookingForm.get('lastName').touched
+          }"
+          >Cognome</label
+        >
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              bookingForm.get('lastName').hasError('required') &&
+              bookingForm.get('lastName').touched
+          }"
+          formControlName="lastName"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            bookingForm.get('lastName').hasError('required') &&
+            bookingForm.get('lastName').touched
+          "
+        >
+          Il cognome &egrave; obbligatorio
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label
+          for="birthdate"
+          [ngClass]="{
+            required: bookingForm.get('registerMe').value,
+            'text-danger':
+              bookingForm.get('birthdate').hasError('required') &&
+              bookingForm.get('birthdate').touched
+          }"
+          >Data di Nascita</label
+        >
+        <input
+          type="date"
+          name="birthdate"
+          id="birthdate"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              bookingForm.get('birthdate').hasError('required') &&
+              bookingForm.get('birthdate').touched
+          }"
+          formControlName="birthdate"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            bookingForm.get('birthdate').hasError('required') &&
+            bookingForm.get('birthdate').touched
+          "
+        >
+          La data di nascita &egrave; obbligatoria per registrarsi
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label
+          for="email"
+          [ngClass]="{
+            required: bookingForm.get('registerMe').value,
+            'text-danger':
+              bookingForm.get('email').hasError('required') ||
+              (bookingForm.get('email').hasError('email') &&
+                bookingForm.get('email').touched)
+          }"
+          >Indirizzo E-Mail</label
+        >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              bookingForm.get('email').hasError('required') ||
+              (bookingForm.get('email').hasError('email') &&
+                bookingForm.get('email').touched)
+          }"
+          formControlName="email"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            bookingForm.get('email').hasError('required') &&
+            bookingForm.get('email').touched
+          "
+        >
+          L'indirizzo e-mail &egrave; obbligatorio per registrarsi
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            bookingForm.get('email').hasError('email') &&
+            bookingForm.get('email').touched
+          "
+        >
+          L'indirizzo e-mail inserito non &egrave; valido
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex align-items-start">
+        <div class="custom-control custom-switch">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="registerMe"
+            formControlName="registerMe"
+          />
+          <label class="custom-control-label" for="registerMe">
+            Registrami
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="travelForm">
+      <h3 id="travel">Il tuo Viaggio</h3>
+      <div class="row mb-4">
+        <div class="col-lg-3 col-md-4">
+          <label for="departure">Quando vorresti partire</label>
+          <input
+            type="date"
+            name="departure"
+            id="departure"
+            class="form-control"
+            formControlName="departure"
+          />
+        </div>
+        <div class="col-lg-3 col-md-4">
+          <label for="return">Quando vorresti tornare</label>
+          <input
+            type="date"
+            name="return"
+            id="return"
+            class="form-control"
+            formControlName="return"
+          />
+        </div>
+        <div class="col-lg-6 pt-4">
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="pullman"
+              formControlName="pullman"
+            />
+            <label class="custom-control-label" for="pullman">Pullman</label>
+          </div>
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="airplane"
+              formControlName="airplane"
+            />
+            <label class="custom-control-label" for="airplane">Aereo</label>
+          </div>
+        </div>
+      </div>
+      <p>Facciamo finta che questa sia un'opzione di viaggio</p>
+      <p>Facciamo finta che questa sia un'altra opzione di viaggio</p>
+    </form>
+
+    <div class="bottom-submit">
+      <button
+        type="submit"
+        class="btn btn-lg btn-success d-flex align-items-center"
+      >
+        <span
+          *ngIf="submitting"
+          class="spinner-grow spinner-grow-sm mr-2"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        {{ submitting ? "Invio in corso..." : "Avanti" }}
+      </button>
+    </div>
+  </form>
+</div>

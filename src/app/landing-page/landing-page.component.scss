@@ -1,0 +1,17 @@
+@import "../../utilities/_variables.scss";
+@import "~bootstrap/scss/bootstrap";
+
+// mi rendo conto che questo storce le immagini, ma in un sito vero mi aspetto che mi vengano date di un certo aspect ratio
+img {
+  height: 14rem;
+}
+
+.card-header {
+  background-color: theme-color("primary");
+  color: color-yiq(theme-color("primary"));
+}
+
+.options-bar {
+  background-color: theme-color("secondary");
+  color: color-yiq(theme-color("secondary"));
+}

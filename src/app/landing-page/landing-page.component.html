@@ -1,13 +1,41 @@
+<div class="container-fluid options-bar pb-3">
+  <form [formGroup]="optionsForm">
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <label for="orderBy">Ordina Per</label>
+        <select
+          name="orderBy"
+          id="orderBy"
+          class="form-control"
+          formControlName="orderBy"
+        >
+          <option value="distanza+">Distanza crescente</option>
+          <option value="distanza-">Distanza decrescente</option>
+          <!-- queste due opzioni sotto non fanno nulla per restrizioni di tempo -->
+          <option value="nome+">Nome crescente</option>
+          <option value="nome-">Nome decrescente</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+
 <div class="container pt-3">
+  <h1>I Nostri Parchi</h1>
   <div class="row">
     <div *ngFor="let park of parks" class="col-lg-4 col-md-6 p-3">
       <div class="card">
+        <div class="card-header">Attrazioni: {{ getTypes(park) }}</div>
         <img class="card-img-top" [src]="park.image" alt="Card image cap" />
         <div class="card-body">
           <h5 class="card-title">{{ park.name }}</h5>
-          <h6 class="card-subtitle">{{ park.location }}</h6>
+          <h6 class="card-subtitle">
+            {{ park.location }}, a {{ park.distance }} km di distanza
+          </h6>
           <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a [routerLink]="['park', park.id]" class="btn btn-secondary"
+            >Esplora</a
+          >
         </div>
       </div>
     </div>

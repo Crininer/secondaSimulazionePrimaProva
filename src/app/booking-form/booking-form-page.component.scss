@@ -1,0 +1,12 @@
+.custom-switch {
+  margin-top: 1.5rem;
+}
+
+.bottom-submit {
+  position: sticky;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.2rem;
+  bottom: 0;
+  background-color: theme-color("light");
+}
